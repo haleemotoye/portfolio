@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haleemot Oyelade | Creative Portfolio</title>
+    <style>
+        /* Modern Reset & Base Setup */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            color: #2D3748;
+            background-color: #FAFAFA;
+            line-height: 1.6;
+            padding: 60px 20px;
+        }
+
+        /* Elegant Page Wrapper */
+        .portfolio-wrapper {
+            max-width: 1050px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 60px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(12, 35, 64, 0.04);
+            border: 1px solid rgba(201, 166, 107, 0.15);
+        }
+
+        /* Header: Premium Minimalist Minimal Styling */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c9a66b, transparent);
+        }
+
+        .header h1 {
+            font-size: 38px;
+            color: #0c2340; /* Executive Navy Blue */
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 13px;
+            color: #c9a66b; /* Muted Gold */
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 13px;
+            color: #0c2340;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: rgba(201, 166, 107, 0.25);
+        }
+
+        /* Professional Summary Section */
+        .summary-section {
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .summary-text {
+            font-size: 15px;
+            color: #5A6A85;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        /* Modern 2-Column Responsive Layout */
+        .main-container {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 50px;
+        }
+
+        @media (max-width: 850px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            body { padding: 20px 10px; }
+            .portfolio-wrapper { padding: 30px 20px; }
+        }
+
+        /* Aesthetic Grid Layout for Portfolio Items */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .portfolio-item {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-box {
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            background-color: #F8FAFC;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Hover effect that builds freelance dynamic appeal */
+        .portfolio-item:hover .portfolio-box {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px rgba(12, 35, 64, 0.06);
+            border-color: rgba(201, 166, 107, 0.4);
+        }
+
+        .portfolio-label {
+            color: #A0AEC0;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .portfolio-caption {
+            font-size: 13px;
+            color: #4A5568;
+            margin-top: 10px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* Side Sections Layout */
+        .side-section {
+            margin-bottom: 40px;
+        }
+
+        /* Minimalist Modern Pill List Items */
+        .list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .list-item {
+            font-size: 13.5px;
+            color: #4A5568;
+            background-color: #F8FAFC;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border-left: 3px solid #c9a66b; /* Accent Line */
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .list-item:hover {
+            background-color: #F1F5F9;
+        }
+
+        /* Premium Minimalist Footer */
+        .footer {
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            margin-top: 60px;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-group {
+            font-size: 13px;
+            color: #718096;
+        }
+
+        .contact-label {
+            font-weight: 700;
+            color: #0c2340;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 2px;
+        }
+        
+        .contact-value {
+            color: #4A5568;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-wrapper">
+        
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Haleemot Oyelade</h1>
+            <div class="subtitle">Canva Designer &bull; Virtual Assistant &bull; Creative Support</div>
+        </div>
+
+        <!-- Professional Summary Section -->
+        <div class="summary-section">
+            <p class="summary-text">
+                "I create clean, modern, and visually appealing designs using Canva. I specialize in social media graphics, wedding invitations, business branding materials, email signatures, banners, and marketing designs. I focus on creating professional designs with strong layout, typography, and visual balance."
+            </p>
+        </div>
+
+        <!-- Main Workspace -->
+        <div class="main-container">
+            
+            <!-- Left Grid Pane -->
+            <div class="left-col">
+                <div class="section-title">Selected Works</div>
+                
+                <div class="grid-container">
+                    <!-- Design Slot 1 -->
+                    <div class="portfolio-item">
+                        <div class="portfolio-box">
+                            <!-- To replace with your pic, delete the span below and use: -->
+                             
+                            <span class="portfolio-label">
+                                <img src="C:\Users\WINDOWS\Desktop\Practice\design1.png" style="width:100%; height:100%; object-fit:cover; border-radius:7px;" alt="Design 1">
+                            </span>
+                        </div>
+                        <div class="portfolio-caption"></div>
+                    </div>
+
+                    <!-- Design Slot 2 -->
+                    <div class="portfolio-item">
+                        <div class="portfolio-box">
+                            <span class="portfolio-label">
+                                <img src="C:\Users\WINDOWS\Desktop\Practice\design2.png" style="width:100%; height:100%; object-fit:cover; border-radius:7px;" alt="Design 2">
+                            </span>
+                        </div>
+                        <div class="portfolio-caption"></div>
+                    </div>
+
+                    <!-- Design Slot 3 -->
+                    <div class="portfolio-item">
+                        <div class="portfolio-box">
+                             
+                            <span class="portfolio-label">
+                                <img src="C:\Users\WINDOWS\Desktop\Practice\design3.png" style="width:100%; height:100%; object-fit:cover; border-radius:7px;" alt="Design 3">
+                            </span>
+                        </div>
+                        <div class="portfolio-caption"></div>
+                    </div>
+
+                    <!-- Design Slot 4 -->
+                    <div class="portfolio-item">
+                        <div class="portfolio-box">
+                             
+                            <span class="portfolio-label">
+                                <img src="C:\Users\WINDOWS\Desktop\Practice\design4.png" style="width:100%; height:100%; object-fit:cover; border-radius:7px;" alt="Design 4"></span>
+                        </div>
+                        <div class="portfolio-caption"></div>
+                    </div>
+
+                    <!-- Design Slot 5 -->
+                    <div class="portfolio-item">
+                        <div class="portfolio-box">
+                            <img src="design5.png" style="width:100%; height:100%; object-fit:cover; border-radius:7px;" alt="Design 5">
+                            <span class="portfolio-label"> <img src="C:\Users\WINDOWS\Desktop\Practice\design5.png" style="width:100%; height:100%; object-fit:cover; border-radius:7px;" alt=""></span>
+                        </div>
+                        <div class="portfolio-caption"></div>
+                    </div>
+
+                    <!-- Design Slot 6 -->
+                    <div class="portfolio-item">
+                        <div class="portfolio-box">
+                            <span class="portfolio-label"> <img src="C:\Users\WINDOWS\Desktop\Practice\design6.png" style="width:100%; height:50%; object-fit:cover; border-radius:7px;" alt="Design 6">
+                        </span>
+                        </div>
+                        <div class="portfolio-caption"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Profile Pane -->
+            <div class="right-col">
+                
+                <div class="side-section">
+                    <div class="section-title">Core Skills</div>
+                    <div class="list-container">
+                        <div class="list-item">Canva Design</div>
+                        <div class="list-item">Layout & Image Alignment</div>
+                        <div class="list-item">Typography</div>
+                        <div class="list-item">Color Coordination</div>
+                        <div class="list-item">Branding Basics</div>
+                        <div class="list-item">Social Media Graphics</div>
+                        <div class="list-item">Marketing Materials</div>
+                        <div class="list-item">Print & Digital Designs</div>
+                    </div>
+                </div>
+
+                <div class="side-section">
+                    <div class="section-title">Why Work With Me</div>
+                    <div class="list-container">
+                        <div class="list-item">Attention to Detail</div>
+                        <div class="list-item">Fast Turnaround</div>
+                        <div class="list-item">Professional Communication</div>
+                        <div class="list-item">Client-Focused</div>
+                        <div class="list-item">Open to Feedback</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer Contact Info -->
+        <div class="footer">
+            <div class="contact-group">
+                <span class="contact-label">Email</span>
+                <a href="mailto:haleemotoyelade5@gmail.com" class="contact-value">haleemotoyelade5@gmail.com</a>
+            </div>
+            <div class="contact-group">
+                <span class="contact-label">Phone Number</span>
+                <span class="contact-value">+2348037332257</span>
+            </div>
+            <div class="contact-group">
+                <span class="contact-label">LinkedIn</span>
+                <a href="https://linkedin.com/in/haleemotoyelade-va" target="_blank" class="contact-value">linkedin.com/in/haleemotoyelade-va</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
